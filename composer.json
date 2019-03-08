@@ -1,7 +1,7 @@
 {
-  "name":         "egulias/email-validator",
+  "name":         "jeronimofagundes/email-validator",
   "description":  "A library for validating emails against several RFCs",
-  "homepage":     "https://github.com/egulias/EmailValidator",
+  "homepage":     "https://github.com/jeronimofagundes/EmailValidator",
   "type":         "Library",
   "keywords":     ["email", "validation", "validator", "emailvalidation", "emailvalidator"],
   "license":      "MIT",
