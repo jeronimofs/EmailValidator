@@ -21,7 +21,7 @@ class RFCValidation implements EmailValidation
     /**
      * @var InvalidEmail
      */
-    private $error;
+    protected $error;
 
     public function isValid($email, EmailLexer $emailLexer)
     {
