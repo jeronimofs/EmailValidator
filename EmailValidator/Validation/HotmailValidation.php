@@ -24,7 +24,7 @@ class HotmailValidation extends RFCValidation
      * https://www.tomshardware.com/news/Outlook-New-Domains-International-UK-International-Outlook-address,22106.html
      * @return array All Microsoft Hotmail's domains
      */
-    public function getHotmailDomains() {
+    public static function getHotmailDomains() {
         return array(
             // International
             'hotmail.com',
@@ -240,7 +240,7 @@ class HotmailValidation extends RFCValidation
         list($user, $domain) = explode('@', $email);
 
         // Test if domain is in allowed domain list
-        if (!in_array(strtolower($domain), $this->getHotmailDomains())) {
+        if (!in_array(strtolower($domain), static::getHotmailDomains())) {
             $this->error = new NoHotmailDomain();
             return false;
         }
