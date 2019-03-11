@@ -253,7 +253,7 @@ class HotmailValidation extends RFCValidation
 
         // Test if contains forbidden characters, according to
         // https://support.microsoft.com/en-za/help/2439357/error-message-when-you-try-to-create-a-user-name-that-contains-a-speci
-        if (preg_match("/^.*(\~|\!|\#|\$|\%|\^|\&|\*|\(|\)|\=|\[|\]|\{|\}|\/|\||\;|\:|\"|\<|\>|\?|\,).*$/", $user)) {
+        if (preg_match("/^.*(\~|\!|\#|\\$|\%|\^|\&|\*|\(|\)|\=|\[|\]|\{|\}|\/|\||\;|\:|\"|\<|\>|\?|\,)+.*$/", $user)) {
             $this->error = new InvalidHotmailUser();
             return false;
         }
