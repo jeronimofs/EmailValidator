@@ -40,9 +40,10 @@ $validator->isValid("example@example.com", new RFCValidation()); //true
 3. [DNSCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/DNSCheckValidation.php)
 4. [DNSDigCheckValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/DNSDigCheckValidation.php)
 5. [GMailValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/GMailValidation.php)
-6. [SpoofCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/SpoofCheckValidation.php)
-7. [MultipleValidationWithAnd](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/MultipleValidationWithAnd.php)
-8. [Your own validation](#how-to-extend)
+6. [HotmailValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/HotmailValidation.php)
+7. [SpoofCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/SpoofCheckValidation.php)
+8. [MultipleValidationWithAnd](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/MultipleValidationWithAnd.php)
+9. [Your own validation](#how-to-extend)
 
 `MultipleValidationWithAnd`
 
