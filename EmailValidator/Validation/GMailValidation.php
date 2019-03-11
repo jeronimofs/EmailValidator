@@ -27,7 +27,7 @@ class GMailValidation extends RFCValidation
             return false;
         }
 
-        if (!preg_match("/^([a-z][A-Z][0-9]\.\+)+$/", $user)) {
+        if (!preg_match("/^([a-z]|[A-Z]|[0-9]|\.|\+)+$/", $user)) {
             $this->error = new InvalidGMailUser();
             return false;
         }

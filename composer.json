@@ -6,7 +6,8 @@
   "keywords":     ["email", "validation", "validator", "emailvalidation", "emailvalidator"],
   "license":      "MIT",
   "authors": [
-    {"name": "Eduardo Gulias Davis"}
+    {"name": "Eduardo Gulias Davis"},
+    {"name": "Jeronimo Fagundes"}
   ],
   "extra": {
     "branch-alias": {
