@@ -17,6 +17,11 @@ Run the command below to install via Composer
 ```shell
 composer require jeronimofagundes/email-validator "dev-master"
 ```
+Optional 
+You must install php-dig to perform DNS Dig Validation
+```shell
+composer require jeronimofagundes/php-dig "dev-master"
+```
 
 ## Getting Started ##
 `EmailValidator`requires you to decide which (or combination of them) validation/s strategy/ies you'd like to follow for each [validation](#available-validations).
