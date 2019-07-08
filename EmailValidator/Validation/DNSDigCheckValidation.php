@@ -9,8 +9,11 @@ namespace Egulias\EmailValidator\Validation;
 use JeronimoFagundes\PhpDig\Dig;
 use JeronimoFagundes\PhpDig\DigConfig;
 
+use Egulias\EmailValidator\Exception\InvalidEmail;
+use Egulias\EmailValidator\Warning\NoDNSMXRecord;
+use Egulias\EmailValidator\Exception\NoDNSRecord;
 
-class DNSDigCheckValidation extends DNSCkeckValidation
+class DNSDigCheckValidation extends DNSCheckValidation
 {
     /**
      * @var string
