@@ -8,7 +8,7 @@ RFC 5321, 5322, 6530, 6531, 6532.
 ## Requirements ##
 
  * [Composer](https://getcomposer.org) is required for installation
- * [Spoofchecking](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/SpoofCheckValidation.php) and [DNSCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/DNSCheckValidation.php) validation requires that your PHP system has the [PHP Internationalization Libraries](https://php.net/manual/en/book.intl.php) (also known as PHP Intl)
+ * [Spoofchecking](/src/Validation/SpoofCheckValidation.php) and [DNSCheckValidation](/src/Validation/DNSCheckValidation.php) validation requires that your PHP system has the [PHP Internationalization Libraries](https://php.net/manual/en/book.intl.php) (also known as PHP Intl)
 
 ## Installation ##
 
@@ -19,6 +19,7 @@ composer require jeronimofagundes/email-validator "dev-master"
 ```
 
 ## Getting Started ##
+
 `EmailValidator`requires you to decide which (or combination of them) validation/s strategy/ies you'd like to follow for each [validation](#available-validations).
 
 A basic example with the RFC validation
@@ -35,19 +36,17 @@ $validator->isValid("example@example.com", new RFCValidation()); //true
 
 ### Available validations ###
 
-1. [RFCValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/RFCValidation.php)
-2. [NoRFCWarningsValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/NoRFCWarningsValidation.php)
-3. [DNSCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/DNSCheckValidation.php)
-4. [DNSDigCheckValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/DNSDigCheckValidation.php)
-5. [GMailValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/GMailValidation.php)
-6. [HotmailValidation](https://github.com/jeronimofagundes/EmailValidator/blob/master/EmailValidator/Validation/HotmailValidation.php)
-7. [SpoofCheckValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/SpoofCheckValidation.php)
-8. [MultipleValidationWithAnd](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/MultipleValidationWithAnd.php)
-9. [Your own validation](#how-to-extend)
+1. [RFCValidation](/src/Validation/RFCValidation.php): Standard RFC-like email validation.
+2. [NoRFCWarningsValidation](/src/Validation/NoRFCWarningsValidation.php): RFC-like validation that will fail when warnings* are found.
+3. [DNSCheckValidation](/src/Validation/DNSCheckValidation.php): Will check if there are DNS records that signal that the server accepts emails. This does not entails that the email exists.
+4. [SpoofCheckValidation](/src/Validation/SpoofCheckValidation.php): Will check for multi-utf-8 chars that can signal an erroneous email name.
+5. [MultipleValidationWithAnd](/src/Validation/MultipleValidationWithAnd.php): It is a validation that operates over other validations performing a logical and (&&) over the result of each validation.
+6. [DNSDigCheckValidation](src/Validation/DNSDigCheckValidation.php)
+7. [GMailValidation](src/Validation/GMailValidation.php)
+8. [HotmailValidation](src/Validation/HotmailValidation.php)
+9. [Your own validation](#how-to-extend): You can extend the library behaviour by implementing your own validations.
 
-`MultipleValidationWithAnd`
-
-It is a validation that operates over other validations performing a logical and (&&) over the result of each validation.
+*warnings: Warnings are deviations from the RFC that in a broader interpretation are acceptded.
 
 ```php
 <?php
@@ -62,16 +61,18 @@ $multipleValidations = new MultipleValidationWithAnd([
     new RFCValidation(),
     new DNSCheckValidation()
 ]);
-$validator->isValid("example@example.com", $multipleValidations); //true
+//ietf.org has MX records signaling a server with email capabilites
+$validator->isValid("example@ietf.org", $multipleValidations); //true
 ```
 
 ### How to extend ###
 
-It's easy! You just need to implement [EmailValidation](https://github.com/egulias/EmailValidator/blob/master/EmailValidator/Validation/EmailValidation.php) and you can use your own validation.
+It's easy! You just need to implement [EmailValidation](/src/Validation/EmailValidation.php) and you can use your own validation.
 
 
 ## Other Contributors ##
-(You can find current contributors [here](https://github.com/jeronimofagundes/EmailValidator/graphs/contributors))
+
+(You can find current contributors [here](https://github.com/egulias/EmailValidator/graphs/contributors))
 
 As this is a port from another library and work, here are other people related to the previous one:
 
@@ -80,5 +81,5 @@ As this is a port from another library and work, here are other people related t
 * Dominic Sayers [@dominicsayers](https://github.com/dominicsayers):  	The original isemail function
 
 ## License ##
-Released under the MIT License attached with this code.
 
+Released under the MIT License attached with this code.
